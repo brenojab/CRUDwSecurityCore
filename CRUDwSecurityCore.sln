@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRUDwSecurityCore", "CRUDwSecurityCore\CRUDwSecurityCore.csproj", "{CCEC92D1-009E-4341-8B71-F3B46E86DCDD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CCEC92D1-009E-4341-8B71-F3B46E86DCDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCEC92D1-009E-4341-8B71-F3B46E86DCDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCEC92D1-009E-4341-8B71-F3B46E86DCDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCEC92D1-009E-4341-8B71-F3B46E86DCDD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1BD89735-F72C-4E05-9E80-E0ADA1B1CF55}
+	EndGlobalSection
+EndGlobal
