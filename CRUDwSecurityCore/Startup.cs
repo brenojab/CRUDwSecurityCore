@@ -63,7 +63,7 @@ namespace CRUDwSecurityCore
 
 
       services.AddMvc();
-      
+
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -86,6 +86,10 @@ namespace CRUDwSecurityCore
         logger.AddDebug(LogLevel.Error);
       }
 
+
+      app.UseDefaultFiles();
+
+      app.UseStaticFiles();
       app.UseAuthentication();
 
       app.UseMvc(config =>

@@ -19,6 +19,7 @@ namespace CRUDwSecurityCore.Models
     public bool Administrador { get; set; }
 
     public string CodUsuario { get; set; }
+
     public string Senha { get; set; }
 
     public string Email { get; set; }

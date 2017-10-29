@@ -7,32 +7,70 @@ using CRUDwSecurityCore.Interfaces;
 using AutoMapper;
 using CRUDwSecurityCore.ViewModels;
 using CRUDwSecurityCore.Models;
+using Microsoft.Extensions.Configuration;
 
 namespace CRUDwSecurityCore.Controllers
 {
-  [Route("api/[controller]")]
+  [Route("app/usuarios")]
   public class UsuariosController : Controller
   {
     private IUsuarioRepository _repository { get; set; }
+    private IConfigurationRoot _config;
+    private UsuarioContext _context;
 
-    public UsuariosController(IUsuarioRepository repository)
+    public UsuariosController(IConfigurationRoot config, IUsuarioRepository repository, UsuarioContext context)
     {
       _repository = repository;
+      _config = config;
+      _context = context;
     }
 
-    [HttpGet]
+    public IActionResult Index()
+    {
+      var data = _context.Usuarios.ToList();
+
+      return View(data);
+    }
+
+    //[Authorize]
     public IActionResult Get()
     {
       try
       {
         var usuarios = _repository.GetAllUsuarios();
 
-        return View(Mapper.Map<IEnumerable<UsuariosViewModel>>(usuarios));
+        return View(usuarios);
       }
       catch (Exception ex)
       {
-        return BadRequest("Erro ao obter usuários");
+        return BadRequest("Não foi possível retornar os usuários.");
       }
+    }
+
+    [HttpGet]
+    public IActionResult List()
+    {
+      try
+      {
+        var usuarios = _repository.GetAllUsuarios();
+
+        return View(usuarios);
+      }
+      catch (Exception ex)
+      {
+        return BadRequest("Não foi possível retornar os usuários.");
+      }
+
+      //try
+      //{
+      //  var usuarios = _repository.GetAllUsuarios();
+
+      //  return View(Mapper.Map<IEnumerable<UsuariosViewModel>>(usuarios));
+      //}
+      //catch (Exception ex)
+      //{
+      //  return BadRequest("Erro ao obter usuários");
+      //}
     }
 
     [HttpPost]
