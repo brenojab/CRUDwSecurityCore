@@ -11,7 +11,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace CRUDwSecurityCore.Controllers
 {
-  [Route("app/usuarios")]
+  [Route("usuarios")]
   public class UsuariosController : Controller
   {
     private IUsuarioRepository _repository { get; set; }
@@ -25,12 +25,12 @@ namespace CRUDwSecurityCore.Controllers
       _context = context;
     }
 
-    public IActionResult Index()
-    {
-      var data = _context.Usuarios.ToList();
+    //public IActionResult Index()
+    //{
+    //  var data = _context.Usuarios.ToList();
 
-      return View(data);
-    }
+    //  return View(data);
+    //}
 
     //[Authorize]
     public IActionResult Get()
@@ -47,8 +47,8 @@ namespace CRUDwSecurityCore.Controllers
       }
     }
 
-    [HttpGet]
-    public IActionResult List()
+    [HttpGet("Index")]
+    public IActionResult Index()
     {
       try
       {
@@ -71,6 +71,14 @@ namespace CRUDwSecurityCore.Controllers
       //{
       //  return BadRequest("Erro ao obter usuários");
       //}
+    }
+
+    [HttpGet("Create")]
+    public IActionResult Create(Guid guid)
+    {
+      var usuario = _repository.GetUsuarioById(guid);
+
+      return View(usuario);
     }
 
     [HttpPost]
